@@ -7,5 +7,7 @@ import br.ufma.portal.entidades.Egresso;
 
 @Repository
 public interface EgressoRepo extends JpaRepository<Egresso, Integer> {
-    
+    boolean buscarEmail(String email);
+    boolean buscarCPF(String cpf);
+
 }

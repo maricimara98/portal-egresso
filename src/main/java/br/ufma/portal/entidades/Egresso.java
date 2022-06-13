@@ -1,9 +1,12 @@
 package br.ufma.portal.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,4 +54,17 @@ public class Egresso {
 
     @Column(name = "url_foto")
     private String url_foto;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "egresso", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<CursoEgresso> cursoEgressos = new ArrayList<CursoEgresso>();
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCPF() {
+        return cpf;
+    }
+
 }

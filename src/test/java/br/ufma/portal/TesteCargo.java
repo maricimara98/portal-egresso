@@ -18,9 +18,10 @@ public class TesteCargo {
     CargoRepo repo;
 
     @Test
-    public void devecriaCurso(){
+    public void descricaoCurso(){
         //cenario
-        Cargo novo = Cargo.builder().nome("teste").descricao("descrição").build();
+        Cargo novo = Cargo.nome("teste").descricao("descrição").build();
+        
 
         // acao
         Cargo retorno = repo.save(novo);

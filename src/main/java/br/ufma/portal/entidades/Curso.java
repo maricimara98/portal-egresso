@@ -1,9 +1,11 @@
 package br.ufma.portal.entidades;
-
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,8 +30,8 @@ public class Curso {
     @Column(name = "id_curso")
     private Integer id_curso;
 
-    @OneToMany(mappedBy = "curso_id")
-    private List<CursoEgresso> cursoEgressos;
+    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<CursoEgresso> cursoEgressos = new ArrayList<CursoEgresso>();
 
     @Column(name = "nome")
     private String nome;
@@ -37,4 +39,7 @@ public class Curso {
     @Column(name = "nivel")
     private String nivel;
 
+    public String getNome() {
+        return nome;
+    }
 }

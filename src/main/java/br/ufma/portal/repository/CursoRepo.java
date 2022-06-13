@@ -8,4 +8,5 @@ import br.ufma.portal.entidades.Curso;
 @Repository
 public interface CursoRepo extends JpaRepository<Curso, Integer>  {
     
+    boolean buscarNome(String nome);
 }

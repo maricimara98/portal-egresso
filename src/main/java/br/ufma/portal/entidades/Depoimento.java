@@ -43,4 +43,5 @@ public class Depoimento {
     @Column(name = "data")
     @Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
     private LocalDate data;
+
 }
